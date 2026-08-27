@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>VXLID?? Is that YOU?!?</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background-image: url("vxlid.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #backgroundButton {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            border: none;
+            padding: 0;
+
+            background: transparent;
+
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="backgroundButton" aria-label="Play sound"></button>
+
+    <script>
+        let backgroundButton =
+            document.querySelector("#backgroundButton");
+
+        let sound =
+            new Audio("anime-ahh.mp3");
+
+        backgroundButton.addEventListener("click", function() {
+
+            sound.currentTime = 0;
+
+            sound.play();
+
+        });
+    </script>
+
+</body>
+</html>

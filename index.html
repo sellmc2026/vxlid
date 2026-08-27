@@ -48,15 +48,15 @@
         function sound() {
             let _n = Math.floor(Math.random() * 5) + 1;
             if _n = 1 {
-                let sound = url("anime-ahh.mp3")
+                let rawSound = url("anime-ahh.mp3")
             } else if _n 2 {
-                let sound = url("vine-boom.mp3")
+                let rawSound = url("vine-boom.mp3")
             } else if _n 3 {
-                let sound = url("rizz-sound-effect.mp3")
+                let rawSound = url("rizz-sound-effect.mp3")
             } else if _n 4 {
-                let sound = url("cat-laught-meme-1.mp3")
+                let rawSound = url("cat-laught-meme-1.mp3")
             } else if _n 5 {
-                let sound = url("dry-fart.mp3")
+                let rawSound = url("dry-fart.mp3")
             }
             
             console.log(_n);
@@ -65,7 +65,7 @@
             document.querySelector("#backgroundButton");
 
         let sound =
-            new Audio("anime-ahh.mp3");
+            new Audio(rawSound);
 
         backgroundButton.addEventListener("click", function() {
 

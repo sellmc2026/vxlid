@@ -45,35 +45,61 @@
     <button id="backgroundButton" aria-label="Play sound"></button>
 
     <script>
+
         function sound() {
+
             let _n = Math.floor(Math.random() * 5) + 1;
-            if _n = 1 {
-                let rawSound = url("anime-ahh.mp3")
-            } else if _n 2 {
-                let rawSound = url("vine-boom.mp3")
-            } else if _n 3 {
-                let rawSound = url("rizz-sound-effect.mp3")
-            } else if _n 4 {
-                let rawSound = url("cat-laught-meme-1.mp3")
-            } else if _n 5 {
-                let rawSound = url("dry-fart.mp3")
+
+            let rawSound;
+
+
+            if (_n === 1) {
+
+                rawSound = "anime-ahh.mp3";
+
+            } else if (_n === 2) {
+
+                rawSound = "vine-boom.mp3";
+
+            } else if (_n === 3) {
+
+                rawSound = "rizz-sound-effect.mp3";
+
+            } else if (_n === 4) {
+
+                rawSound = "cat-laught-meme-1.mp3";
+
+            } else if (_n === 5) {
+
+                rawSound = "dry-fart.mp3";
+
             }
-            
-            console.log(_n);
-        
+
+
+            console.log("Random number:", _n);
+            console.log("Playing:", rawSound);
+
+
+            let audio = new Audio(rawSound);
+
+            audio.play();
+
+        }
+
+
         let backgroundButton =
             document.querySelector("#backgroundButton");
 
-        let sound =
-            new Audio(rawSound);
 
-        backgroundButton.addEventListener("click", function() {
+        backgroundButton.addEventListener(
+            "click",
+            function() {
 
-            sound.currentTime = 0;
+                sound();
 
-            sound.play();
+            }
+        );
 
-        });
     </script>
 
 </body>

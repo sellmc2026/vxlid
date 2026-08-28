@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
 
     <title>VXLID?? Is that YOU?!?</title>
 
     <style>
+
         html,
         body {
             margin: 0;
@@ -15,40 +20,68 @@
             width: 100%;
             height: 100%;
 
+            overflow: hidden;
+
             background-image: url("vxlid.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+
+            background-color: #000000;
         }
+
+
+        body {
+            min-height: 100dvh;
+        }
+
 
         #backgroundButton {
             position: fixed;
 
-            top: 0;
-            left: 0;
+            inset: 0;
 
             width: 100%;
-            height: 100%;
+            height: 100dvh;
 
             border: none;
             padding: 0;
+            margin: 0;
 
             background: transparent;
 
             cursor: pointer;
+
+            /*
+             * Removes the blue/gray tap highlight
+             * that some mobile browsers add.
+             */
+            -webkit-tap-highlight-color: transparent;
+
+            /*
+             * Makes touch interaction respond immediately.
+             */
+            touch-action: manipulation;
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <button id="backgroundButton" aria-label="Play sound"></button>
+    <div
+        id="backgroundButton"
+        aria-label="Play sound"
+    ></div>
+
 
     <script>
 
         console.log("JavaScript started!");
 
-        let backgroundButton =
+
+        const backgroundButton =
             document.querySelector("#backgroundButton");
 
 
@@ -87,7 +120,7 @@
             console.log("Trying to play:", rawSound);
 
 
-            let audio =
+            const audio =
                 new Audio(rawSound);
 
 
@@ -137,11 +170,25 @@
         }
 
 
-        backgroundButton.addEventListener(
-            "click",
-            function() {
+        /*
+         * pointerdown works for:
+         *
+         * - Desktop mouse
+         * - Mobile touchscreen
+         * - Stylus
+         *
+         * So you don't need separate
+         * desktop and mobile handlers.
+         */
 
-                console.log("BACKGROUND CLICKED!");
+        backgroundButton.addEventListener(
+            "pointerdown",
+            function(event) {
+
+                console.log(
+                    "BACKGROUND PRESSED!",
+                    event.pointerType
+                );
 
                 sound();
 
